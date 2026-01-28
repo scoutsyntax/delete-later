@@ -1,0 +1,12 @@
+-- Records where higher AUDIT_ID has earlier timestamp than lower AUDIT_ID
+SELECT 
+    a.AUDIT_ID AS higher_id,
+    a.LAST_UPDATED_DATE AS higher_id_timestamp,
+    b.AUDIT_ID AS lower_id,
+    b.LAST_UPDATED_DATE AS lower_id_timestamp
+FROM A_HOLDING a
+JOIN A_HOLDING b 
+    ON a.AUDIT_ID > b.AUDIT_ID 
+   AND a.LAST_UPDATED_DATE < b.LAST_UPDATED_DATE
+ORDER BY a.AUDIT_ID
+FETCH FIRST 100 ROWS ONLY;
