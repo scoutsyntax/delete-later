@@ -1,31 +1,12 @@
-mode=timestamp+incrementing
-timestamp.column.name=LAST_UPDATED_DATE
-incrementing.column.name=AUDIT_ID
-timestamp.delay.interval.ms=120000
+Here are high-level bullet points you can give your agent for HTML generation (Outlook-safe):
 
-
-name=a_holding_jdbc_source
-connector.class=io.confluent.connect.jdbc.JdbcSourceConnector
-tasks.max=1
-
-connection.url=jdbc:oracle:thin:@//host:port/service
-connection.user=XXXX
-connection.password=XXXX
-
-mode=timestamp+incrementing
-timestamp.column.name=LAST_UPDATED_DATE
-incrementing.column.name=AUDIT_ID
-timestamp.delay.interval.ms=120000
-
-poll.interval.ms=10000
-batch.max.rows=2000
-
-transaction.isolation.mode=READ_COMMITTED
-numeric.mapping=best_fit
-validate.non.null=false
-
-
-
-transforms=ValueToKey
-transforms.ValueToKey.type=org.apache.kafka.connect.transforms.ValueToKey
-transforms.ValueToKey.fields=PK_HOLDING_ID,FK_PU_DATA_ID
+Use table-based layouts, not div-based designs
+Keep design simple and fixed-width (avoid complex responsiveness)
+Write inline CSS only (no <style> tags or external CSS)
+Stick to basic, widely supported CSS properties
+Use standard system fonts (e.g., Arial, Verdana)
+Ensure all images use absolute URLs
+Define explicit widths/heights for elements and images
+Avoid modern web features (Flexbox, Grid, animations, etc.)
+Generate HTML as email-friendly, not web-page style
+Ensure output is compatible with Microsoft Outlook rendering
